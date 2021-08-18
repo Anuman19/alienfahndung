@@ -14,18 +14,40 @@ def drawborder(turtrand):
 def drawpolygon_kopf(ecken, grösse):
     ecken = abs(ecken)
     grösse = abs(grösse)
-    if grösse > 100:
+    t_kopf = Turtle()
+    t_kopf.up()
+    t_kopf.goto(0-grösse/2, 300)
+    t_kopf.down()
+    for i in range(ecken):
+        t_kopf.fd(grösse)
+        t_kopf.right(360/ecken)
+
+def checkeck(ecken):
+    zahl = ecken.isdigit()
+    if not zahl:
         return False
-    elif ecken > 10 or ecken < 3:
+    elif zahl:
+        ecken = float(ecken)
+        if ecken > 10 or ecken < 3:
+            return False
+        else:
+            return True
+
+
+
+
+def checkgröss(grösse):
+    zahl = grösse.isdigit()
+    if not zahl:
         return False
+    elif zahl:
+        grösse = float(grösse)
+        grösse = abs(grösse)
+        if grösse > 100:
+            return False
     else:
-        t_kopf = Turtle()
-        t_kopf.up()
-        t_kopf.goto(0-grösse/2, 300)
-        t_kopf.down()
-        for i in range(ecken):
-            t_kopf.fd(grösse)
-            t_kopf.right(360/ecken)
+        return True
+
 
 
     done()
