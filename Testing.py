@@ -24,6 +24,7 @@ while run == True:
 zahlen = False
 zahlengrösse = False
 
+"""
 while rund == True:
     radius = input("Wie gross ist denn der Alienkopf in Zahlen? ")
     zahlen = radius.isdigit()
@@ -33,7 +34,7 @@ while rund == True:
         drawcircle_kopf(radius)
     else:
         print("Bitte gib eine Zahl ein!")
-        rund = True
+        rund = True """
 
 if eckig:
     ecken = input("Das Alien hat nach ihren Angaben einen Kopf mit Ecken...\nNach unseren Angaben ist die Anzahl Ecken zwischen 3-10.\nWie viele Ecken haben Sie gesehen? ")

@@ -12,6 +12,10 @@ def drawborder(turtrand):
         turtrand.lt(90)
 
 def drawpolygon_kopf(ecken, grösse):
+    turtrand = Turtle()
+    drawborder(turtrand)
+    ecken = int(ecken)
+    grösse = int(grösse)
     ecken = abs(ecken)
     grösse = abs(grösse)
     t_kopf = Turtle()
@@ -21,6 +25,7 @@ def drawpolygon_kopf(ecken, grösse):
     for i in range(ecken):
         t_kopf.fd(grösse)
         t_kopf.right(360/ecken)
+    done()
 
 def checkeck(ecken):
     zahl = ecken.isdigit()
@@ -45,8 +50,8 @@ def checkgröss(grösse):
         grösse = abs(grösse)
         if grösse > 100:
             return False
-    else:
-        return True
+        else:
+            return True
 
 
 
