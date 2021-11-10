@@ -1,16 +1,26 @@
 from turtle import *
 from functions import *
+from polyHead import PolyHead
+from roundHead import RoundHead
 
 turtrand = Turtle()
 drawborder(turtrand)
 
+turtle = Turtle()
 
-ecken = 2
-grösse = 200
-drawpolygon_kopf(ecken, grösse)
-print(drawpolygon_kopf(ecken, grösse))
+turtle.speed(10)
+turtle.color("violet")
+turtle.ht()
+turtle.up()
+turtle.goto(-300, 100)
+turtle.down()
+turtle.fd(600)
+turtle.up()
+turtle.goto(-300, -100)
+turtle.down()
+turtle.fd(600)
+head = RoundHead()
+print(head.checkRadius("100"))
 
-digit = 2.0354654
-print(digit.isdigit())
 
 done()
