@@ -14,7 +14,7 @@ class Round:
         self.turtle.goto(0, 0)
         self.turtle.down()
 
-    def checkRadius(self, radius):
+    def radiusCheck(self, radius):
 
         if radius > 1:
             return not (radius < 5 or radius > 100)
@@ -31,4 +31,3 @@ class Round:
         self.turtle.begin_fill()
         self.turtle.circle(radius)
         self.turtle.end_fill()
-        done()

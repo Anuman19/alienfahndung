@@ -33,7 +33,7 @@ while True:
         print("This is not a valid answer cheetizen!")
         error += 1
         continue
-    if Poly.checkCheese(cheese):
+    if Poly.cheeseCheck(cheese):
         break
     else:
         print("Please choose a value between 1 - 10.")
@@ -52,7 +52,7 @@ if headForm:
             print("This is not a valid answer citizen!")
             error += 1
             continue
-        if head.checkRadius(radius):
+        if head.radiusCheck(radius):
             head.drawroundhead(radius, cheese)
             break
         else:
@@ -71,7 +71,7 @@ else:
             print("This is not a valid answer citizen!")
             error += 1
             continue
-        if head.checkCorner(corner):
+        if head.cornerCheck(corner):
             print("Hmmm...I believe you this time. \n"
                   "One of our scouts managed to get rather close to the creature. \n"
                   "Because of that he was able to measure one side of its head! \n"
@@ -84,7 +84,8 @@ else:
                     print("This is not a valid answer citizen!")
                     error += 1
                     continue
-                if head.checkLine(line):
+                if head.lineCheck(line):
+                    line = head.checkApothem(corner,line)
                     head.drawpolyhead(corner, line, cheese)
                     break
                 else:

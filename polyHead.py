@@ -28,16 +28,16 @@ class Poly:
         self.turtle.down()
 
     @staticmethod
-    def checkCorner(corner):
+    def cornerCheck(corner):
 
         if corner > 1:
 
-            return not (corner < 4 or corner > 10)
+            return not (corner < 4 or corner > 8)
         else:
             return False
 
     @staticmethod
-    def checkLine(line):
+    def lineCheck(line):
 
         if line > 1:
             return not (line < 10 or line > 100)
@@ -45,7 +45,7 @@ class Poly:
             return False
 
     @staticmethod
-    def checkCheese(cheese):
+    def cheeseCheck(cheese):
 
         if cheese > 1:
             return not (cheese < 1 or cheese > 10)
@@ -66,16 +66,21 @@ class Poly:
             self.turtle.lt(360 / corner)
         self.turtle.end_fill()
         self.turtle.ht()
-        done()
 
     @staticmethod
-    def apothem(corner, line):
+    def checkApothem(corner, line):
 
-        a = line / (2 * math.tan(math.pi / corner))
+        a = line / (2 * math.sin(math.pi / corner))
 
         if a >= 90:
             while a >= 90:
                 a -= 1
-            return round((a * (2 * math.tan(math.pi / corner))) / 10) * 10
+            print(a)
+            return round((a * 2 * math.tan(math.pi / corner)) / 10) * 10
+
         else:
             return line
+
+    @staticmethod
+    def apothem(corner, line):
+        return line / (2 * math.tan(math.pi / corner))

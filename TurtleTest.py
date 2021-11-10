@@ -1,12 +1,15 @@
 from turtle import *
 from functions import *
-from polyHead import PolyHead
-from roundHead import RoundHead
+from eyes import *
+from roundHead import *
 
-turtrand = Turtle()
-drawborder(turtrand)
+
+
+drawborder()
 
 turtle = Turtle()
+
+
 
 turtle.speed(10)
 turtle.color("violet")
@@ -19,8 +22,14 @@ turtle.up()
 turtle.goto(-300, -100)
 turtle.down()
 turtle.fd(600)
-head = RoundHead()
-print(head.checkRadius("100"))
+head = Poly()
+head.drawpolyhead(10, 200, 5)
+# print(head.radiusCheck("100"))
+print(head.checkApothem(4,200))
+print(100 / (2 * math.sin(math.pi / 4)))
+
+# eyes = Eyes(head.apothem(5,100))
+# eyes.drawEyes(50)
 
 
 done()
