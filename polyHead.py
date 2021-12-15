@@ -27,6 +27,8 @@ class Poly:
         self.turtle.goto(0, 200)
         self.turtle.down()
 
+    section = 200
+
     @staticmethod
     def cornerCheck(corner):
 
@@ -54,9 +56,9 @@ class Poly:
 
     def drawpolyhead(self, corner, line, cheese):
 
-        line = self.apothem(corner, line)
+        line = self.radius(corner, line)
         self.turtle.up()
-        self.turtle.goto(0 - line / 2, 100)
+        self.turtle.goto(0 - line / 2, self.section)
         self.turtle.down()
         self.turtle.color("black", colors[int(cheese) - 1])
         self.turtle.begin_fill()
@@ -66,21 +68,25 @@ class Poly:
             self.turtle.lt(360 / corner)
         self.turtle.end_fill()
         self.turtle.ht()
+        done()
 
     @staticmethod
     def checkApothem(corner, line):
 
-        a = line / (2 * math.sin(math.pi / corner))
+        radius = Poly.radius(corner, line)
 
-        if a >= 90:
-            while a >= 90:
-                a -= 1
-            print(a)
-            return round((a * 2 * math.tan(math.pi / corner)) / 10) * 10
+        if radius >= 90:
+            while radius >= 90:
+                radius -= 1
+            print(radius)
+            return Poly.radius(corner, line) * (2 * math.sin(math.degrees(180 / corner)))
 
         else:
             return line
 
     @staticmethod
-    def apothem(corner, line):
-        return line / (2 * math.tan(math.pi / corner))
+    def radius(corner, line):
+        return line / (2 * math.sin(math.degrees(180 / corner)))
+
+    def setSection(self, value):
+        self.section = value

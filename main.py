@@ -44,16 +44,14 @@ if headForm:
           "That is indeed interesting because our scouting team also described its head as round... \n"
           "They reported the radius to be anywhere between 5 and 100.")
     head = Round()
-    drawborder()
     while True:
         try:
-            radius = int(input("What would you say is the radius of this head? "))
+            headRadius = int(input("What would you say is the radius of this head? "))
         except ValueError:
             print("This is not a valid answer citizen!")
             error += 1
             continue
-        if head.radiusCheck(radius):
-            head.drawroundhead(radius, cheese)
+        if head.radiusCheck(headRadius):
             break
         else:
             print("Our scouts are professionals. They are sure the value is between 5 - 100.")
@@ -61,10 +59,10 @@ if headForm:
 else:
     print("Hmmmm....angular you say. \n"
           "That is indeed interesting because our scouting team also described its head as angular... \n"
-          "They reported the number of corners to be anywhere between 4 and 10.")
+          "They reported the number of corners to be anywhere between 4 and 8.")
     head = Poly()
-    drawborder()
-    while True:
+    run = True
+    while run:
         try:
             corner = int(input("How many corners are there? "))
         except ValueError:
@@ -85,8 +83,7 @@ else:
                     error += 1
                     continue
                 if head.lineCheck(line):
-                    line = head.checkApothem(corner,line)
-                    head.drawpolyhead(corner, line, cheese)
+                    run = False
                     break
                 else:
                     print("Are you insulting the sacrifice of my brave scout??")
@@ -94,3 +91,135 @@ else:
         else:
             print("Our scouts are professionals. They are sure the value is between 4 - 10.")
             continue
+
+while True:
+    bodyForm = input("Would you describe the body of the creature as (r)ound or (a)ngular? ")
+    if bodyForm.lower() == "r" or bodyForm.lower() == "round":
+        bodyForm = True
+        break
+    elif bodyForm.lower() == "a" or bodyForm.lower() == "angular":
+        bodyForm = False
+        break
+    else:
+        print("Press r for round or a for angular.")
+        continue
+
+if bodyForm:
+    body = head
+    while True:
+        try:
+            bodyRadius = int(input("What would you say is the radius of this body? "))
+        except ValueError:
+            print("This is not a valid answer citizen!")
+            error += 1
+            continue
+        if body.radiusCheck(bodyRadius):
+            break
+        else:
+            print("Our scouts are professionals. They are sure the value is between 5 - 100.")
+            continue
+else:
+    body = head
+    run = True
+    while run:
+        try:
+            bodyCorner = int(input("How many corners are there? "))
+        except ValueError:
+            print("This is not a valid answer citizen!")
+            error += 1
+            continue
+        if head.cornerCheck(bodyCorner):
+            print("Hmmm...I believe you this time. \n")
+            while True:
+                try:
+                    bodyLine = int(input("What would you say is the length? "))
+                except ValueError:
+                    print("This is not a valid answer citizen!")
+                    error += 1
+                    continue
+                if head.lineCheck(bodyLine):
+                    run = False
+                    break
+                else:
+                    print("Are you insulting the sacrifice of my brave scout??")
+                    continue
+        else:
+            print("Our scouts are professionals. They are sure the value is between 4 - 10.")
+            continue
+
+while True:
+    bodyForm = input("Would you describe the body of the creature as (r)ound or (a)ngular? ")
+    if bodyForm.lower() == "r" or bodyForm.lower() == "round":
+        bodyForm = True
+        break
+    elif bodyForm.lower() == "a" or bodyForm.lower() == "angular":
+        bodyForm = False
+        break
+    else:
+        print("Press r for round or a for angular.")
+        continue
+
+if bodyForm:
+    body = head
+    while True:
+        try:
+            bodyRadius = int(input("What would you say is the radius of this body? "))
+        except ValueError:
+            print("This is not a valid answer citizen!")
+            error += 1
+            continue
+        if body.radiusCheck(bodyRadius):
+            break
+        else:
+            print("Our scouts are professionals. They are sure the value is between 5 - 100.")
+            continue
+else:
+    body = head
+    bodyRun = True
+    while bodyRun:
+        try:
+            bodyCorner = int(input("How many corners are there?"))
+        except ValueError:
+            print("This is not a valid answer citizen!")
+            error += 1
+            continue
+        if body.cornerCheck(bodyCorner):
+            print("Hmmm...I believe you this time.")
+            while True:
+                try:
+                    bodyLine = int(input("What would you say is the length? "))
+                except ValueError:
+                    print("This is not a valid answer citizen!")
+                    error += 1
+                    continue
+                if body.lineCheck(bodyLine):
+                    bodyRun = False
+                    break
+                else:
+                    print("Are you insulting the sacrifice of my brave scout??")
+                    continue
+        else:
+            print("Our scouts are professionals. They are sure the value is between 4 - 10.")
+            continue
+
+if headForm:
+    drawborder()
+    head = Round()
+    head.drawroundhead(headRadius, cheese)
+else:
+    drawborder()
+    head = Poly()
+    head.drawpolyhead(corner, line, cheese)
+
+if bodyForm:
+    drawborder()
+    body = Round()
+    body.setSection(0)
+    body.drawroundhead(bodyRadius, cheese)
+else:
+    drawborder()
+    body = Poly()
+    body.setSection(0)
+    body.drawpolyhead(bodyCorner, bodyLine, cheese)
+
+done()

@@ -14,6 +14,8 @@ class Round:
         self.turtle.goto(0, 0)
         self.turtle.down()
 
+    section = 200
+
     def radiusCheck(self, radius):
 
         if radius > 1:
@@ -31,3 +33,7 @@ class Round:
         self.turtle.begin_fill()
         self.turtle.circle(radius)
         self.turtle.end_fill()
+
+    def setSection(self, value):
+
+        self.section = value
