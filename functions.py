@@ -29,18 +29,6 @@ colors = {
 }
 
 
-def cheeseCheck(cheese):
-    return 1 <= cheese <= 10
-
-
-def radiusCheck(radius):
-    return 25 <= radius <= 100
-
-
-def cornerCheck(corner):
-    return 4 <= corner <= 10
-
-
 def lineCheck(corner, line):
     if 4 < corner < 7 and line > 80:
         line = 80
@@ -58,22 +46,18 @@ def setBodyRadius(size):
     return switch.get(size, "Invalid")
 
 
-def drawExtension(x, y, direction):
+def drawExtension(x, y, direction, colour):
     turtle = Turtle()
     turtle.ht()
     turtle.up()
     turtle.goto(x, y)
     turtle.down()
-    turtle.pensize(15)
-    if direction == 0:
-        turtle.seth(260)
-    elif direction == 1:
-        turtle.seth(280)
-    elif direction == 2:
-        turtle.seth(190)
-    elif direction == 3:
-        turtle.seth(-10)
+    turtle.pensize(12)
+    turtle.seth(direction)
+    turtle.pencolor(colors[colour])
+    turtle.begin_fill()
     turtle.fd(100)
+    turtle.end_fill()
 
 
 def draw():

@@ -1,15 +1,12 @@
-from turtle import *
-
-from alienfahndung.extensions import Leg
-from polyHead import *
 from roundHead import *
 from functions import *
 from eyes import *
 
-print("WELCOME TO AREA 51.3! \n"
+print("WELCOME TO AREA 50.0! \n"
       "As you are well aware there were several sightings of unknown entities. \n"
       "Our department has received the information that you might have some insight into this matter \n"
-      "The source of this information is almost trustworthy which is why you were brought here with a bag over your head \n"
+      "The source of this information is almost trustworthy, \n"
+      "which is why you were brought here with a bag over your head\n"
       "and what some might describe as violently. \n"
       "But fear not dear citizen. You are only here to provide a description of the creature in question. \n"
       "Your country will be grateful for your contribution! \n"
@@ -17,10 +14,13 @@ print("WELCOME TO AREA 51.3! \n"
 
 error = 0
 headRadius = 0
-cheese = -1
+cheese = 0
+magikarp = 0
 corner = 0
 headPolySide = 0
 bodyRadius = 0
+legs = 0
+arms = 0
 
 while True:
     headForm = input("Would you describe the head of the creature as (r)ound or (a)ngular? ")
@@ -42,10 +42,11 @@ while True:
         print("This is not a valid answer cheetizen!")
         error += 1
         continue
-    if cheeseCheck(cheese):
+    if 1 <= cheese <= 10:
         break
     else:
         print("Please choose a value between 1 - 10.")
+        error += 1
         continue
 
 if headForm:
@@ -59,10 +60,11 @@ if headForm:
             print("This is not a valid answer citizen!")
             error += 1
             continue
-        if radiusCheck(headRadius):
+        if 25 <= headRadius <= 100:
             break
         else:
             print("Our scouts are professionals. They are sure the value is between 25 - 100.")
+            error += 1
             continue
 else:
     print("Hmmmm....angular you say. \n"
@@ -76,7 +78,7 @@ else:
             print("This is not a valid answer citizen!")
             error += 1
             continue
-        if cornerCheck(corner):
+        if 4 <= corner <= 10:
             print("Hmmm...I believe you this time. \n"
                   "One of our scouts managed to get rather close to the creature. \n"
                   "Because of that he was able to get a closer look of its head! \n"
@@ -85,6 +87,7 @@ else:
             break
         else:
             print("Our scouts are professionals. They are sure the value is between 4 - 10.")
+            error += 1
             continue
 
     while True:
@@ -99,6 +102,7 @@ else:
             break
         else:
             print("Are you insulting the sacrifice of my brave scout??")
+            error += 1
             continue
 
 if headForm:
@@ -124,6 +128,82 @@ while True:
         print("Please choose one of the internationally accepted sizes for aliens by pressing 1,2 or 3.")
         continue
 
+while True:
+    try:
+        magikarp = int(input("On scale 1 - 10 where 1 is not likely and 10 is very likely, \n"
+                             "how likely is it that you would sacrifice your life for a Magikarp? "))
+    except ValueError:
+        print("This is not a valid answer citizen!")
+        error += 1
+        continue
+    if 1 <= magikarp <= 10:
+        if magikarp <= 5:
+            print("My disappointment is immeasurable and my day ruined.")
+        else:
+            print("Splash")
+        break
+    else:
+        print("Magikarp is a Fish.")
+        error += 1
+        continue
+
+print("Now lets get back to the important stuff!\n")
+print(colors)
+
+while True:
+    try:
+        legs = int(input("Please choose the most fitting colour for the legs: "))
+    except ValueError:
+        print("This is not a valid answer citizen!")
+        error += 1
+        continue
+    if 1 <= legs <= 10:
+        print("Interesting...")
+        break
+    else:
+        print("Press a number between 1 - 10.")
+        error += 1
+        continue
+
+print(colors)
+while True:
+    try:
+        arms = int(input("Please choose the most fitting colour for the arms: "))
+    except ValueError:
+        print("This is not a valid answer citizen!")
+        error += 1
+        continue
+    if 1 <= arms <= 10:
+        print("Very interesting...")
+        break
+    else:
+        print("Press a number between 1 - 10.")
+        error += 1
+        continue
+
+if error == 0:
+    print("My dear Sir. You have answered every question of mine correctly and honestly.\n"
+          "This is why my consciousness forces me to tell you the truth...\n"
+          "There is no Area 50.0.\n"
+          "There are no aliens.\n"
+          "This is a military hospital in Atlanta.\n"
+          "You tripped on your way to your job as Commander of the distracting unit.\n"
+          "What you are about to see is a portrait of what you look like now.\n"
+          "We tried our best to restore your former glory....\n"
+          ".............\n"
+          "and we are glad to say we surpassed every expectation!")
+else:
+    print("Dear Citizen. You answered me incorrectly ", error, " times.\n" +
+          "This is unacceptable!!\n"
+          "But I guess it was no use to expect more of you.\n"
+          "................\n"
+          "Based on your description of the alien in question,\n"
+          "you seem to have successfully seen through my scheme.\n"
+          "Yes, this is Area 50.0.\n"
+          "And yes...\n"
+          "You are the alien we have captured\n"
+          "and yes you will be dissected!\n")
+
 roundObj = Round()
 angular = Poly()
 
@@ -144,13 +224,16 @@ else:
     else:
         eyes = Eyes(0 - 50 / 2, 100 + 20)
         eyes.drawEyes()
-
+# body
 roundObj.setSection(angular.section - 2 * bodyRadius)
-roundObj.drawroundhead(bodyRadius, cheese)
-drawExtension(0, angular.section - 2 * bodyRadius, 0)
-drawExtension(0, angular.section - 2 * bodyRadius, 1)
+roundObj.drawroundhead(bodyRadius, magikarp)
 
-drawExtension(0 - bodyRadius, 100 - bodyRadius, 2)
-drawExtension(0 + bodyRadius, 100 - bodyRadius, 3)
+# legs
+drawExtension(-10, angular.section - 2 * bodyRadius, 260, legs)
+drawExtension(10, angular.section - 2 * bodyRadius, 280, legs)
+
+# arms
+drawExtension(0 - bodyRadius, 100 - bodyRadius, 190, arms)
+drawExtension(0 + bodyRadius, 100 - bodyRadius, -10, arms)
 
 done()
