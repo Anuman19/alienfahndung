@@ -1,8 +1,10 @@
 from polyHead import *
+from functions import *
 
 
 def radius(corner, line):
     return line / (2 * math.sin(math.degrees(180 / corner)))
+
 
 # corner = 10
 # side = 100
@@ -16,4 +18,15 @@ def radius(corner, line):
 # turtle.fd(100)
 # done()
 
-print(colors)
+import math
+
+turtle = Turtle()
+turtle.color('blue')
+
+turtle.speed(50)
+
+for i in range(45):
+    turtle.forward(150)
+    turtle.left(170)
+turtle.ht()
+done()
