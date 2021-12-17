@@ -195,7 +195,7 @@ while True:
         continue
 
 # determine to draw heart or not
-print("Would you say you like the idea that there are other being with us in this universe?\n")
+print("Would you say you like the idea that there are other beings with us in this universe?\n")
 while True:
     isHeart = input("(y)es or (n)o?\n").lower()
 
@@ -234,7 +234,7 @@ print("The picture is getting clearer now...\n")
 if error == 0:
     print("My dear Sir. You have answered every question of mine correctly and honestly.\n"
           "This is why my consciousness forces me to tell you the truth...\n"
-          "There is no Area 50.0.\n"
+          "There is not Area 50.0.\n"
           "There are no aliens.\n"
           "This is a military hospital in Atlanta.\n"
           "You tripped on your way to your job as Commander of the distracting unit.\n"
