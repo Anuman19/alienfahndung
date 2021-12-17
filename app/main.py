@@ -42,7 +42,7 @@ while True:
         print("Press r for round or a for angular.")
         continue
 print("By the way, i really love cheese. \n"
-      "Unfortunately there are some lost souls who in fact do not engulf cheese in affection\n")
+      "Unfortunately there are some lost souls who in fact do not engulf cheese in affection.\n")
 while True:
     try:
         cheese = int(input("How would you rate your liking to cheese on a scale 1 - 10?\n"))
@@ -100,7 +100,7 @@ else:
 
     while True:
         try:
-            headPolySide = int(input("What would you say is the length? (50 - 100)\n"))
+            headPolySide = int(input("What would you say is the length of one side? (50 - 100)\n"))
         except ValueError:
             print("This is not a valid answer citizen!")
             error += 1
@@ -113,6 +113,7 @@ else:
             error += 1
             continue
 
+# determine to draw star or not
 print("I only like the sun.\n"
       "Because other stars imply that there could be other beings as well....\n"
       "Do you like stars?\n")
@@ -193,6 +194,7 @@ while True:
         error += 1
         continue
 
+# determine to draw heart or not
 print("Would you say you like the idea that there are other being with us in this universe?\n")
 while True:
     isHeart = input("(y)es or (n)o?\n").lower()
@@ -203,7 +205,7 @@ while True:
         break
     elif isHeart == "n" or isHeart == "no":
         isHeart = False
-        print("You would make a great gold partner!")
+        print("You would make a great golf partner!")
         break
     else:
         print("Press yes or no")
@@ -255,6 +257,7 @@ else:
 roundObj = Round()
 angular = Poly()
 
+# either draw one or two eyes based on head size
 if headForm:
     draw_border()
     roundObj.draw_round_head(headRadius, cheese)

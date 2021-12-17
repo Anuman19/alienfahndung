@@ -29,7 +29,6 @@ colors = {
 }
 
 
-# resize HeadSide to fit the borders.
 def line_check(corner, line):
     if 4 < corner < 7 and line > 80:
         line = 80
@@ -38,6 +37,7 @@ def line_check(corner, line):
     return line
 
 
+# resize HeadSide to fit the borders.
 def set_body_radius(size):
     switch = {
         1: 30,
@@ -67,7 +67,7 @@ def heart():
     turtle.ht()
     turtle.speed(50)
     turtle.penup()
-    turtle.goto(200, -300)
+    turtle.goto(200, -280)
     turtle.pendown()
     turtle.begin_fill()
     turtle.fillcolor('red')
