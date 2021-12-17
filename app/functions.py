@@ -1,7 +1,7 @@
 from turtle import *
 
 
-def drawborder():
+def draw_border():
     border = Turtle()
     border.ht()
     border.speed(10)
@@ -30,7 +30,7 @@ colors = {
 
 
 # resize HeadSide to fit the borders.
-def lineCheck(corner, line):
+def line_check(corner, line):
     if 4 < corner < 7 and line > 80:
         line = 80
     elif 6 < corner <= 10 and line > 70:
@@ -38,7 +38,7 @@ def lineCheck(corner, line):
     return line
 
 
-def setBodyRadius(size):
+def set_body_radius(size):
     switch = {
         1: 30,
         2: 60,
@@ -47,7 +47,7 @@ def setBodyRadius(size):
     return switch.get(size, "Invalid")
 
 
-def drawExtension(x, y, direction, colour):
+def draw_extension(x, y, direction, colour):
     turtle = Turtle()
     turtle.ht()
     turtle.up()
@@ -59,15 +59,6 @@ def drawExtension(x, y, direction, colour):
     turtle.begin_fill()
     turtle.fd(100)
     turtle.end_fill()
-
-
-def sign():
-    turtle = Turtle()
-    turtle.speed(15)
-    turtle.penup()
-    turtle.goto(-30, -280)
-    turtle.pendown()
-    turtle.ondrag(turtle.goto)
 
 
 # https://techpluslifestyle.com/technology/turtle-library-python/
@@ -89,7 +80,6 @@ def heart():
     turtle.end_fill()
 
 
-# https://techpluslifestyle.com/technology/turtle-library-python/
 def star():
     turtle = Turtle()
     turtle.color('blue')
@@ -97,7 +87,20 @@ def star():
     turtle.penup()
     turtle.goto(-250, -200)
     turtle.pendown()
-    for i in range(45):
+    turtle.color("orange")
+    turtle.begin_fill()
+    for i in range(5):
         turtle.forward(150)
-        turtle.left(170)
+        turtle.left(144)
+
+    turtle.end_fill()
     turtle.ht()
+
+
+def write_name(name):
+    turtle = Turtle()
+    turtle.ht()
+    turtle.penup()
+    turtle.goto(0, 310)
+    turtle.pendown()
+    turtle.write(name, False, align="center", font=("Arial", 50, "italic"))

@@ -1,6 +1,6 @@
 from roundHead import *
-from functions import *
-from eyes import *
+from alienfahndung.app.functions import *
+from alienfahndung.app.eyes import *
 
 print("WELCOME TO AREA 50.0! \n"
       "As you are well aware there were several sightings of unknown entities. \n"
@@ -12,13 +12,20 @@ print("WELCOME TO AREA 50.0! \n"
       "Your country will be grateful for your contribution! \n"
       "Now, let us start from the top. \n")
 
+# count all the wrong inputs of the user
 error = 0
 headRadius = 0
+
+# colour of the head
 cheese = 0
+
+# colour of the body
 magikarp = 0
 corner = 0
 headPolySide = 0
 bodyRadius = 0
+
+# colour legs and arms
 legs = 0
 arms = 0
 
@@ -52,11 +59,11 @@ while True:
 
 if headForm:
     print("Hmmmm....round you say. \n"
-          "That is indeed interesting because our scouting team also described its head as round... n"
+          "That is indeed interesting because our scouting team also described its head as round... \n"
           "They reported the radius to be anywhere between 25 and 100.\n")
     while True:
         try:
-            headRadius = int(input("What would you say is the radius of this head?\n "))
+            headRadius = int(input("What would you say is the radius of this head?\n"))
         except ValueError:
             print("This is not a valid answer citizen!")
             error += 1
@@ -99,7 +106,7 @@ else:
             error += 1
             continue
         if 50 <= headPolySide <= 100:
-            headPolySide = lineCheck(corner, headPolySide)
+            headPolySide = line_check(corner, headPolySide)
             break
         else:
             print("Are you insulting the sacrifice of my brave scout??")
@@ -141,7 +148,7 @@ while True:
         error += 1
         continue
     if bodyRadius == 1 or bodyRadius == 2 or bodyRadius == 3:
-        bodyRadius = setBodyRadius(bodyRadius)
+        bodyRadius = set_body_radius(bodyRadius)
         break
     else:
         print("Please choose one of the internationally accepted sizes for aliens by pressing 1,2 or 3.")
@@ -150,7 +157,7 @@ while True:
 while True:
     try:
         magikarp = int(input("On scale 1 - 10 where 1 is not likely and 10 is very likely,\n"
-                             "how likely is it that you would sacrifice your life for a Magikarp?\n "))
+                             "how likely is it that you would sacrifice your life for a Magikarp?\n"))
     except ValueError:
         print("This is not a valid answer citizen!")
         error += 1
@@ -249,39 +256,39 @@ roundObj = Round()
 angular = Poly()
 
 if headForm:
-    drawborder()
-    roundObj.drawroundhead(headRadius, cheese)
+    draw_border()
+    roundObj.draw_round_head(headRadius, cheese)
     eyes = Eyes(0 - headRadius / 2, roundObj.section + headRadius)
     if headRadius < 50:
-        eyes.drawEye()
+        eyes.draw_eye()
     else:
-        eyes.drawEyes()
+        eyes.draw_eyes()
 else:
-    drawborder()
-    angular.drawpolyhead(corner, headPolySide, cheese)
+    draw_border()
+    angular.draw_poly_head(corner, headPolySide, cheese)
     if headPolySide <= 65 or corner <= 5:
         eyes = Eyes(0 / 2, 100 + 20)
-        eyes.drawEye()
+        eyes.draw_eye()
     else:
         eyes = Eyes(0 - 50 / 2, 100 + 20)
-        eyes.drawEyes()
+        eyes.draw_eyes()
 # body
-roundObj.setSection(angular.section - 2 * bodyRadius)
-roundObj.drawroundhead(bodyRadius, magikarp)
+roundObj.set_section(angular.section - 2 * bodyRadius)
+roundObj.draw_round_head(bodyRadius, magikarp)
 
 # legs
-drawExtension(-10, angular.section - 2 * bodyRadius, 260, legs)
-drawExtension(10, angular.section - 2 * bodyRadius, 280, legs)
+draw_extension(-10, angular.section - 2 * bodyRadius, 260, legs)
+draw_extension(10, angular.section - 2 * bodyRadius, 280, legs)
 
 # arms
-drawExtension(0 - bodyRadius, 100 - bodyRadius, 190, arms)
-drawExtension(0 + bodyRadius, 100 - bodyRadius, -10, arms)
+draw_extension(0 - bodyRadius, 100 - bodyRadius, 190, arms)
+draw_extension(0 + bodyRadius, 100 - bodyRadius, -10, arms)
 
 if isStar:
     star()
 if isHeart:
     heart()
 
-print("\nPlease sign this masterpiece!")
-sign()
+name = input("\nPlease name this creature!\n")
+write_name(name)
 done()

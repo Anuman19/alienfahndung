@@ -12,11 +12,11 @@ class Eyes:
         self.turtle.goto(x, y)
         self.turtle.down()
 
-    def drawEyes(self):
+    def draw_eyes(self):
         for i in range(2):
-            self.drawEye()
+            self.draw_eye()
 
-    def drawEye(self):
+    def draw_eye(self):
         self.turtle.seth(-45)
         self.turtle.color("black")
         self.turtle.begin_fill()

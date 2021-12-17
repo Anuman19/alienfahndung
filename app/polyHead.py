@@ -1,7 +1,6 @@
 from turtle import *
-import math
 
-from alienfahndung.functions import colors
+from alienfahndung.app.functions import colors
 
 
 class Poly:
@@ -16,7 +15,7 @@ class Poly:
 
     section = 100
 
-    def drawpolyhead(self, corner, line, colour):
+    def draw_poly_head(self, corner, line, colour):
         self.turtle.up()
         self.turtle.goto(0 - line / 2, self.section)
         self.turtle.down()
@@ -29,5 +28,5 @@ class Poly:
         self.turtle.end_fill()
         self.turtle.ht()
 
-    def setSection(self, value):
+    def set_section(self, value):
         self.section = value

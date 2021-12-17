@@ -1,6 +1,4 @@
-from turtle import *
-import math
-from polyHead import *
+from alienfahndung.app.polyHead import *
 
 
 class Round:
@@ -15,7 +13,7 @@ class Round:
 
     section = 100
 
-    def drawroundhead(self, radius, colour):
+    def draw_round_head(self, radius, colour):
         self.turtle.up()
         self.turtle.goto(0, self.section)
         self.turtle.down()
@@ -24,5 +22,5 @@ class Round:
         self.turtle.circle(radius)
         self.turtle.end_fill()
 
-    def setSection(self, value):
+    def set_section(self, value):
         self.section = value
